@@ -17,7 +17,7 @@ contract BeanCoin is ERC20, Ownable {
     function Toast(address to, uint256 amount) external onlyOwner {
         require(
             amount > 0,
-            "The amount must be greater than 0 for you to claim your Valorant Points!"
+            "You can't toast 0 beans"
         );
         _mint(to, amount);
     }
