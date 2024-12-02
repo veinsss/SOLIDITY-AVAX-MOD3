@@ -15,11 +15,23 @@ contract BeanCoin is ERC20, Ownable {
     uint256 public constant cappuccino = 20;
 
     function Toast(address to, uint256 amount) external onlyOwner {
-        require(
-            amount > 0,
-            "You can't toast 0 beans"
-        );
+        require(amount > 0, "You can't toast 0 beans");
         _mint(to, amount);
+    }
+
+    function Brew(uint256 amount) external {
+        require(amount > 0, "Burn amount must be greater than 0");
+        require(balanceOf(msg.sender) >= amount, "Insufficient balance");
+
+        _burn(msg.sender, amount);
+    }
+
+    function transferBeans(address recipient, uint256 amount) external {
+        require(recipient != address(0), "Address is Invalid");
+            require(amount > 0, "You can't transfer 0 beans");
+        require(balanceOf(msg.sender) >= amount, "Not enough beans");
+
+        _transfer(_msgSender(), recipient, amount);
     }
 
     function buyItem(string memory item) external {
