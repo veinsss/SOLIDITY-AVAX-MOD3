@@ -1,9 +1,5 @@
 # BeanCoin!  
 A token that simulates ERC20 tokens with a flavor of coffee. Built using openzepplin library 
-# Features 
-- Increments of 5 burning of tokens
-  - BeanCoin uses increments of 5 to burn tokens
-  - presented using buying coffee
 # Prequisites
 - Remix IDE
 # Contract Structure
